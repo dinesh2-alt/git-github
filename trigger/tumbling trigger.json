@@ -13,8 +13,8 @@
 		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
-			"frequency": "Hour",
-			"interval": 1,
+			"frequency": "Minute",
+			"interval": 10,
 			"startTime": "2022-09-03T04:05:00Z",
 			"endTime": "2022-09-04T15:58:00Z",
 			"delay": "00:00:00",

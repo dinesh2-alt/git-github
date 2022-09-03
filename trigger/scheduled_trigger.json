@@ -1,0 +1,21 @@
+{
+	"name": "scheduled_trigger",
+	"properties": {
+		"description": "this trigger will scheduled as per wall clock ",
+		"annotations": [
+			"scheduled trigger"
+		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2022-09-03T04:00:00Z",
+				"endTime": "2022-09-04T15:51:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

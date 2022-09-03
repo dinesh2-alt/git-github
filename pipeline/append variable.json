@@ -1,0 +1,36 @@
+{
+	"name": "append variable",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "varia1",
+					"value": {
+						"value": "@pipeline().parameters.param1",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"param1": {
+				"type": "string",
+				"defaultValue": "param1"
+			}
+		},
+		"variables": {
+			"varia1": {
+				"type": "Array",
+				"defaultValue": [
+					"array1",
+					"array2"
+				]
+			}
+		},
+		"annotations": []
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"name": "execute pp",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"description": "it is calling schedule trigger copy file into output container",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "scheduled trigger",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}

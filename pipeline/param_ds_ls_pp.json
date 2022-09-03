@@ -15,10 +15,102 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_paramerterised_src",
+						"type": "DatasetReference",
+						"parameters": {
+							"countainername": {
+								"value": "@pipeline().parameters.pp_container",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.pp_filename",
+								"type": "Expression"
+							},
+							"storageaccountname": {
+								"value": "@pipeline().parameters.pp_storageaccount",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_paramer_sin",
+						"type": "DatasetReference",
+						"parameters": {
+							"ds_sink_continer": {
+								"value": "@pipeline().parameters.pp_sink_container",
+								"type": "Expression"
+							},
+							"ds_sink_filename": {
+								"value": "@pipeline().parameters.pp_sink_filename",
+								"type": "Expression"
+							},
+							"ds_accontname": {
+								"value": "@pipeline().parameters.pp_storageaccount",
+								"type": "Expression"
+							}
+						}
+					}
+				]
 			}
 		],
+		"parameters": {
+			"pp_container": {
+				"type": "string",
+				"defaultValue": "input"
+			},
+			"pp_filename": {
+				"type": "string",
+				"defaultValue": "customerinfo.csv"
+			},
+			"pp_storageaccount": {
+				"type": "string",
+				"defaultValue": "storageaccounr1as"
+			},
+			"pp_sink_container": {
+				"type": "string",
+				"defaultValue": "output"
+			},
+			"pp_sink_filename": {
+				"type": "string",
+				"defaultValue": "output_customerinfo.csv"
+			}
+		},
 		"annotations": []
 	}
 }

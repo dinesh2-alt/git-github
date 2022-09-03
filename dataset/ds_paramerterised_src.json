@@ -1,0 +1,46 @@
+{
+	"name": "ds_paramerterised_src",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_paramerterised",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"storageaccountname": {
+					"value": "@dataset().countainername",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"countainername": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			},
+			"storageaccountname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().countainername",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

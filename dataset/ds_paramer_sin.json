@@ -1,0 +1,46 @@
+{
+	"name": "ds_paramer_sin",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_paramerterised",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"storageaccountname": {
+					"value": "@dataset().ds_accontname",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"ds_sink_continer": {
+				"type": "string"
+			},
+			"ds_sink_filename": {
+				"type": "string"
+			},
+			"ds_accontname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().ds_sink_filename",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().ds_sink_continer",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

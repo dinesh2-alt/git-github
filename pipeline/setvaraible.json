@@ -1,0 +1,32 @@
+{
+	"name": "setvaraible",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"typeProperties": {
+					"variableName": "variable1",
+					"value": {
+						"value": "@replace(pipeline().parameters.parameters,'param','varia')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"parameters": {
+				"type": "string",
+				"defaultValue": "paramval"
+			}
+		},
+		"variables": {
+			"variable1": {
+				"type": "String",
+				"defaultValue": "variaval"
+			}
+		},
+		"annotations": []
+	}
+}

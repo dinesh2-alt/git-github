@@ -1,0 +1,44 @@
+{
+	"name": "filter activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "ds_sch_tri_src",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"findout_card": {
+				"type": "string",
+				"defaultValue": "9777-4287-8862-7386"
+			}
+		},
+		"annotations": []
+	}
+}

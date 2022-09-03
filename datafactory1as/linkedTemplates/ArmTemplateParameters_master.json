@@ -11,6 +11,9 @@
 		"ls_output_connectionString": {
 			"value": ""
 		},
+		"ls_paramerterised_connectionString": {
+			"value": ""
+		},
 		"containerUri": {
 			"value": ""
 		},

@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_output'"
 		},
+		"ls_paramerterised_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_paramerterised'"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +51,9 @@
 					},
 					"ls_output_connectionString": {
 						"value": "[parameters('ls_output_connectionString')]"
+					},
+					"ls_paramerterised_connectionString": {
+						"value": "[parameters('ls_paramerterised_connectionString')]"
 					}
 				}
 			},
